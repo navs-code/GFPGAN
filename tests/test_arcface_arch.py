@@ -26,7 +26,7 @@ def test_basicblock():
     output = block(img)
     assert output.shape == (1, 3, 12, 12)
 
-    # ----------------- use the downsmaple module--------------- #
+    # ----------------- use the downsmaple module --------------- #
     downsample = torch.nn.UpsamplingNearest2d(scale_factor=0.5).cuda()
     block = BasicBlock(1, 3, stride=2, downsample=downsample).cuda()
     img = torch.rand((1, 1, 12, 12), dtype=torch.float32).cuda()
@@ -41,7 +41,7 @@ def test_bottleneck():
     output = block(img)
     assert output.shape == (1, 4, 12, 12)
 
-    # ----------------- use the downsmaple module--------------- #
+    # ----------------- use the downsmaple module --------------- #
     downsample = torch.nn.UpsamplingNearest2d(scale_factor=0.5).cuda()
     block = Bottleneck(1, 1, stride=2, downsample=downsample).cuda()
     img = torch.rand((1, 1, 12, 12), dtype=torch.float32).cuda()
